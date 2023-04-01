@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h4>Enter values separated by commas</h4>
+    <button onclick="generate()">Generate</button>
+    <label for="a">Set A</label><input type="text" name="a" id="a">
+    <label for="b">Set B</label><input type="text" name="b" id="b">
+    <label for="c">Set C</label><input type="text" name="c" id="c">
+    <select name="select" id="sel" onchange="getSelectedValue()">
+      <option value="select" selected>select</option>
+      <option value="u">union</option>
+      <option value="i">intersection</option>
+      <option value="s">symmetric</option>
+    </select>
+    <div class="container">
+        <canvas id="canvas"></canvas>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
