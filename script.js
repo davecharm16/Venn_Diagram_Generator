@@ -66,13 +66,13 @@ const generate =()=>{
         drawCircle(x1, y1, radius, colors[2]);
         drawCircle(x2, y1, radius, colors[2]);
         drawCircle(centerX, y2, radius, colors[2]);
-        drawVal(ctx, info.A, x1-50, y1-20,"#0000FF");
-        drawVal(ctx, info.B, x2+50, y1-20,"#0000FF");
-        drawVal(ctx, info.C, centerX, y2+50,"#0000FF");
-        drawVal(ctx, info.AB, centerX, y1-50,"#0000FF");
-        drawVal(ctx, info.AC, (x1 + radius / 4)-60, (centerY - radius / 4)+80,"#0000FF");
-        drawVal(ctx, info.BC, (x2 + radius / 4)-30, (centerY - radius / 4)+80,"#0000FF");
-        drawVal(ctx, info.ABC, centerX, (centerY - radius / 4)+50,"#0000FF");
+        drawVal(ctx, info.A, x1-50, y1-20,"#0000FF", size=20);
+        drawVal(ctx, info.B, x2+50, y1-20,"#0000FF", size=20);
+        drawVal(ctx, info.C, centerX, y2+50,"#0000FF",size=20);
+        drawVal(ctx, info.AB, centerX, y1-50);
+        drawVal(ctx, info.AC, (x1 + radius / 4)-60, (centerY - radius / 4)+80);
+        drawVal(ctx, info.BC, (x2 + radius / 4)-30, (centerY - radius / 4)+80);
+        drawVal(ctx, info.ABC, centerX, (centerY - radius / 4)+50,"#0000FF",size=20);
         break;
       
       case 'i':
@@ -92,12 +92,12 @@ const generate =()=>{
         drawCircle(x1, y1, radius, colors[0]);
         drawCircle(x2, y1, radius, colors[1]);
         drawCircle(centerX, y2, radius, colors[2]);
-        drawVal(ctx, info.A, x1-50, y1-20, "#FF0000");
-        drawVal(ctx, info.B, x2+50, y1-20, "#00FF00");
-        drawVal(ctx, info.C, centerX, y2+50, "#0000FF");
-        drawVal(ctx, info.AB, centerX, y1-50);
-        drawVal(ctx, info.AC, (x1 + radius / 4)-60, (centerY - radius / 4)+80);
-        drawVal(ctx, info.BC, (x2 + radius / 4)-30, (centerY - radius / 4)+80);
+        drawVal(ctx, info.A, x1-50, y1-20, "#8B4000", 20);
+        drawVal(ctx, info.B, x2+50, y1-20, "#8B4000", 20);
+        drawVal(ctx, info.C, centerX, y2+50, "#8B4000", 20);
+        drawVal(ctx, info.AB, centerX, y1-50, "#8B4000", 20);
+        drawVal(ctx, info.AC, (x1 + radius / 4)-60, (centerY - radius / 4)+80, "#8B4000", 20);
+        drawVal(ctx, info.BC, (x2 + radius / 4)-30, (centerY - radius / 4)+80, "#8B4000", 20);
         drawVal(ctx, info.ABC, centerX, (centerY - radius / 4)+50);
         break;
     
@@ -114,7 +114,7 @@ const generate =()=>{
     }
 }
 
-function drawVal(ctx,arr, x, y, color = "#000000"){
+function drawVal(ctx,arr, x, y, color = "#000000", size = 15){
     output = " "
     if(arr.length >=2){
         for (let i = 0; i < arr.length; i++){
@@ -125,7 +125,7 @@ function drawVal(ctx,arr, x, y, color = "#000000"){
         output+=arr[0]+""
     }
     
-    drawTextInBox(ctx, output, 40, 20, x, y, color)
+    drawTextInBox(ctx, output, 40, 20, x, y, color, size)
 }
 
 
@@ -160,8 +160,8 @@ function extractInformation (arr1, arr2, arr3){
     })
 }
 
-function drawTextInBox(ctx, text, boxWidth, boxHeight,x1, y1, color = "#000000") {
-    ctx.font = "15px Arial"
+function drawTextInBox(ctx, text, boxWidth, boxHeight,x1, y1, color = "#000000", size) {
+    ctx.font = `${size}px Arial`
     const lines = [];
     let currentLine = '';
     const words = text.split(' ');
